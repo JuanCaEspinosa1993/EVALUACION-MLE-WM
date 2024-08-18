@@ -11,7 +11,7 @@ Modelo de machine learning que predice si lloverá o no al dia siguiente.
 - [Requisitos](#requisitos)
 - [Instalación](#instalación)
 - [Uso](#uso)
-- ![Estructura del Proyecto](reports/figures/project_structure.png)
+- [Estructura del Proyecto](#Estructura-del-proyecto)
 
 
 ## Requisitos
@@ -61,3 +61,5 @@ python main.py
 ```
 
 ## Estructura-del-proyecto
+En la imagen se muestra la estructura de carpetas usadas en el proyecto
+![Estructura del Proyecto](reports/figures/project_structure.png)
