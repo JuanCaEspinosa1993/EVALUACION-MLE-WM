@@ -1,5 +1,6 @@
 from src.data_ingestion import load_data, read_csv_files
 from src.data_processing import *
+from src.model_training import create_model
 import os
 
 def main():
@@ -26,6 +27,12 @@ def main():
     for city, df_city in y_dict.items():
         filename = f'val+{city}.csv'
         df_city.to_csv(f"data/interim/{filename}", index=False)
+
+    ##Entrenando modelo
+    features_path = 'data/interim/Canberra.csv'
+    labels_path = 'data/interim/val+Canberra.csv'
+    model_path_to_save = 'models'
+    model = create_model(features_path, labels_path, model_path_to_save)
 
 
     
