@@ -13,9 +13,22 @@ def main():
     data_dict_city = delete_null_columns(data_dict_city)
     data_dict_city = fill_column_with_mode(data_dict_city)
     data_dict_city = fill_column_with_mean(data_dict_city)
-    features = build_features(data_dict_city)
-    print(features)
 
+    features_dict = x_features(data_dict_city)
+    y_dict = y_features(data_dict_city)
+
+    ## Guardando features Dataframes en .csv
+    for city, df_city in features_dict.items():
+        filename = f'{city}.csv'
+        df_city.to_csv(f"data/interim/{filename}", index=False)
+
+    ## Guardando f_dict Dataframes en .csv
+    for city, df_city in y_dict.items():
+        filename = f'val+{city}.csv'
+        df_city.to_csv(f"data/interim/{filename}", index=False)
+
+
+    
 
 if __name__ == '__main__':
     main()

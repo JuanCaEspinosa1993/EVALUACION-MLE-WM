@@ -129,3 +129,17 @@ def build_features(df_dict_Loc: dict) -> dict:
             elif i >= len(coef_corr_positive[key]):
                 features[key].append(coef_corr_negative[key].index[i-(len(coef_corr_positive[key])+1)])
     return features
+
+def x_features(df_dict_Loc: dict) -> dict:
+    features = build_features(df_dict_Loc)
+    X = {elem : pd.DataFrame() for elem in Loc}
+    for key in df_dict_Loc.keys():
+        X[key]= df_dict_Loc[key][features[key]].copy()
+    return X
+
+
+def y_features(df_dict_Loc: dict) -> dict:
+    y = {elem : pd.DataFrame() for elem in Loc}
+    for key in df_dict_Loc.keys():
+        y[key]= df_dict_Loc[key][['RainTomorrow']].copy()
+    return y
